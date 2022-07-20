@@ -16,8 +16,7 @@ public class DataGenerator {
             Map<Integer, String> idValueMap = new HashMap<>();
             for (int i = 0; i < dataSize; i++) {
                 int finalI = i;
-                executorService.execute(() -> idValueMap.put(finalI, "Value of " + finalI));
-
+                executorService.execute(() -> addValueToMap(idValueMap, finalI));
             }
 
             executorService.shutdown();
@@ -29,4 +28,15 @@ public class DataGenerator {
             return Collections.emptyMap();
         }
     }
+
+    private static void addValueToMap(Map<Integer, String> idValueMap, int finalI) {
+        try {
+            // Simulate some processing that takes 5ms to finish
+            Thread.sleep(5);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        idValueMap.put(finalI, "Value of " + finalI);
+    }
+
 }
