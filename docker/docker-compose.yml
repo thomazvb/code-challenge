@@ -1,0 +1,16 @@
+version: "3.6"
+services:
+  code-challenge-prices:
+    image: thomazvb/code-challenge-prices:latest
+    container_name: code-challenge-prices
+    environment:
+      SPRING_DATA_MONGODB_URI: 'mongodb://products-mongodb:27017/code_challenge'
+    ports:
+      - 8081:8081
+
+  products-mongodb:
+    image: mongo:4.4
+    container_name: products-mongodb
+    entrypoint: [ "docker-entrypoint.sh", "mongod" ]
+    ports:
+      - 27018:27017
