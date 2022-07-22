@@ -29,12 +29,15 @@ public class DataGenerator {
         }
     }
 
+    /**
+     * Method to simulate getting the data from some source that would take 5ms to finish<BR />
+     * <B> DO NOT CHANGE THIS METHOD </B>
+     */
     private static void addValueToMap(Map<Integer, String> idValueMap, int i) {
         try {
-            // Simulate some processing that takes 5ms to finish
             Thread.sleep(5);
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            Thread.currentThread().interrupt();
         }
         idValueMap.put(i, "Value of " + i);
     }
