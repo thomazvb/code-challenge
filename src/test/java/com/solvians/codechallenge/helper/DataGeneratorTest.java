@@ -9,6 +9,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class DataGeneratorTest {
 
+    /**
+     * <B> DO NOT CHANGE THIS METHOD </B>
+     */
     @Test
     @Timeout(5)
     void getIdValueDataShouldReturnTheCorrectSize() {
@@ -16,8 +19,7 @@ class DataGeneratorTest {
         Map<Integer, String> idValueData = DataGenerator.getIdValueData(dataSize);
 
         assertThat(idValueData)
-                .size()
-                .as("The returned map should have the data size passed in the param")
-                .isEqualTo(dataSize);
+                .as("The returned map should have the data size passed in the param.")
+                .hasSize(dataSize);
     }
 }
