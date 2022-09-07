@@ -15,7 +15,7 @@ class DataGeneratorTest {
     @Test
     @Timeout(5)
     void getIdValueDataShouldReturnTheCorrectSize() {
-        int dataSize = 10000;
+        int dataSize = 5000;
         Map<Integer, String> idValueData = DataGenerator.getIdValueData(dataSize);
 
         assertThat(idValueData)
